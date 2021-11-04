@@ -1,0 +1,51 @@
+<div id="ball" style="
+  z-index:5;
+  position:absolute;
+  left:0px;
+  top:0px;
+  width:50px;
+  height:50px;
+  border-radius:50%;
+  background:green"></div>
+
+<script>
+
+var velocityX = 5;
+var velocityY = 3;
+var positionX = 0;
+var positionY = 0;
+var reverse = false;
+var ball = document.getElementById('ball');
+
+// YOUR CODE 
+// ----------------
+function moving(){
+  // x-coordinates 
+  var X1 = 0;
+  var X2 = 500;
+
+  // y-coordinates
+  var y1 = 0;
+  var y2 = 400;
+
+  if (movingBack){
+    positionX = positionX - velocityX;
+    positionY = positionY - velocityY;
+    ball.style.left = positionX + "px";
+    ball.style.top = positionY + "px"
+  } else {
+    positionX = positionX + velocityX;
+    positionY = positionY + velocityY;
+    ball.style.left = positionX + "px";
+    ball.style.top = positionY + "px"
+  }
+
+  if (
+    positionX > X2 || positionX === X1 || positionY > Y2 || positionY === Y1
+  ){
+  reverse = !reverse;
+  }
+}
+
+setInterval(moving, 100);
+</script>
